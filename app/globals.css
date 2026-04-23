@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap");
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #f4f6fb;
+  color: #0b1e3f;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Şablonların gerçek 1080px boyutunda işlenip ekrana ölçeklendirilmesi
+   için yardımcı sınıf — TemplateStage tarafından kullanılır. */
+.template-stage {
+  transform-origin: top left;
+}
+
+/* html2canvas'ın yakaladığı sahnede gölge/transition gibi şeyler bozucu
+   olabilir; render sırasında bu sınıfı ekleyip kaldırıyoruz. */
+.is-rendering * {
+  transition: none !important;
+  animation: none !important;
+}
