@@ -1,7 +1,7 @@
 "use client";
 
+import { AgentStrip } from "@/components/AgentStrip";
 import { AutoFitText } from "@/components/AutoFitText";
-import { ContactBlock } from "@/components/ContactBlock";
 import { MapPin } from "@/components/MapPin";
 import { QrCode } from "@/components/QrCode";
 import type { PropertyData } from "@/lib/types";
@@ -144,23 +144,24 @@ export function InfoCard({ data }: Props) {
         />
       </div>
 
-      {/* En alttaki danışman + QR şeridi */}
+      {/* QR — alt şeridin üzerinde sağ üstte */}
+      <div className="absolute" style={{ right: 60, bottom: 230 }}>
+        <QrCode value={data.ilanUrl} size={120} bg="#ffffff" fg="#0B1E3F" />
+      </div>
+
+      {/* En alttaki danışman bandı */}
       <div
-        className="absolute inset-x-0 bottom-0 px-14 py-6 flex items-center justify-between"
+        className="absolute inset-x-0 bottom-0 px-12 py-7"
         style={{ background: "#0B1E3F", color: "white" }}
       >
-        <ContactBlock data={data} align="left" theme="onDark" />
-        <div className="flex items-center gap-4">
-          <div className="text-right">
-            <div className="text-xs uppercase tracking-widest text-white/60">
-              İlanı İncele
-            </div>
-            <div className="font-semibold text-sm text-white/90">
-              QR'ı taratın
-            </div>
-          </div>
-          <QrCode value={data.ilanUrl} size={130} bg="#ffffff" fg="#0B1E3F" />
-        </div>
+        <AgentStrip
+          ad={data.danismanAdi}
+          unvan={data.danismanUnvan}
+          telefon={data.danismanTelefon}
+          foto={data.danismanFoto}
+          theme="onDark"
+          scale={1}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
+import { AgentStrip } from "@/components/AgentStrip";
 import { AutoFitText } from "@/components/AutoFitText";
-import { ContactBlock } from "@/components/ContactBlock";
 import { QrCode } from "@/components/QrCode";
 import type { PropertyData } from "@/lib/types";
 import { formatFiyat } from "@/lib/utils";
@@ -260,31 +260,28 @@ export function GaleriVitrin({ data }: Props) {
         <QrCode value={data.ilanUrl} size={110} bg="#FFFFFF" fg={NAVY} />
       </div>
 
-      {/* Alt iletişim şeridi */}
+      {/* Alt iletişim şeridi (foto → isim/ünvan → iletişim) */}
       <div
-        className="absolute flex items-center justify-between"
+        className="absolute"
         style={{
           left: 0,
           right: 0,
           bottom: 0,
           background: NAVY,
-          padding: "26px 60px",
+          padding: "24px 60px",
           color: "white",
           borderTop: `3px solid ${GOLD}`,
         }}
       >
-        <ContactBlock data={data} align="left" theme="onDark" />
-        {data.logo && (
-          <img
-            src={data.logo}
-            alt=""
-            style={{
-              height: 86,
-              filter: "brightness(0) invert(1)",
-              opacity: 0.92,
-            }}
-          />
-        )}
+        <AgentStrip
+          ad={data.danismanAdi}
+          unvan={data.danismanUnvan}
+          telefon={data.danismanTelefon}
+          foto={data.danismanFoto}
+          theme="onDark"
+          accent={GOLD}
+          scale={1}
+        />
       </div>
     </div>
   );

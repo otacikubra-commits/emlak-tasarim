@@ -1,7 +1,7 @@
 "use client";
 
+import { AgentStrip } from "@/components/AgentStrip";
 import { AutoFitText } from "@/components/AutoFitText";
-import { ContactBlock } from "@/components/ContactBlock";
 import { MapPin } from "@/components/MapPin";
 import { QrCode } from "@/components/QrCode";
 import type { PropertyData } from "@/lib/types";
@@ -154,10 +154,34 @@ export function NewListingPost({ data }: Props) {
             color: "#0B1E3F",
           }}
         >
-          <span className="font-display font-extrabold shrink-0" style={{ fontSize: 58 }}>
+          <span className="font-display font-extrabold" style={{ fontSize: 58 }}>
             {formatFiyat(data.fiyat) || "—"}
           </span>
-          <ContactBlock data={data} align="right" theme="onGold" />
+          <span
+            className="uppercase font-bold text-sm tracking-[0.3em]"
+            style={{ color: "#0B1E3F", opacity: 0.85 }}
+          >
+            {data.islemTuru} Fiyatı
+          </span>
+        </div>
+
+        {/* Danışman bandı: foto → isim/ünvan → iletişim */}
+        <div
+          className="mt-5 rounded-2xl px-6 py-5"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(212,175,55,0.4)",
+            backdropFilter: "blur(4px)",
+          }}
+        >
+          <AgentStrip
+            ad={data.danismanAdi}
+            unvan={data.danismanUnvan}
+            telefon={data.danismanTelefon}
+            foto={data.danismanFoto}
+            theme="onDark"
+            scale={1}
+          />
         </div>
       </div>
     </div>

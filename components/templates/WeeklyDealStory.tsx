@@ -1,7 +1,7 @@
 "use client";
 
+import { AgentStrip } from "@/components/AgentStrip";
 import { AutoFitText } from "@/components/AutoFitText";
-import { ContactBlock } from "@/components/ContactBlock";
 import { QrCode } from "@/components/QrCode";
 import type { PropertyData } from "@/lib/types";
 import { formatFiyat } from "@/lib/utils";
@@ -157,19 +157,20 @@ export function WeeklyDealStory({ data }: Props) {
 
         {/* Lacivert iletişim şeridi */}
         <div
-          className="rounded-2xl px-6 py-5 mt-4 flex items-center justify-between"
+          className="rounded-2xl px-7 py-6 mt-4"
           style={{
             background: "rgba(11,30,63,0.92)",
             border: "1px solid rgba(212,175,55,0.35)",
           }}
         >
-          <ContactBlock data={data} align="left" theme="onDark" />
-          <div
-            className="text-xs uppercase tracking-[0.3em] font-bold"
-            style={{ color: "#D4AF37" }}
-          >
-            QR'ı{"\n"}Taratın
-          </div>
+          <AgentStrip
+            ad={data.danismanAdi}
+            unvan={data.danismanUnvan}
+            telefon={data.danismanTelefon}
+            foto={data.danismanFoto}
+            theme="onDark"
+            scale={1.15}
+          />
         </div>
       </div>
     </div>

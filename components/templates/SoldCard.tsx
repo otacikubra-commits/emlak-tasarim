@@ -1,7 +1,7 @@
 "use client";
 
+import { AgentStrip } from "@/components/AgentStrip";
 import { AutoFitText } from "@/components/AutoFitText";
-import { ContactBlock } from "@/components/ContactBlock";
 import type { PropertyData } from "@/lib/types";
 
 interface Props {
@@ -82,24 +82,22 @@ export function SoldCard({ data }: Props) {
         </div>
       </div>
 
-      {/* Alt şerit: danışman bilgisi */}
+      {/* Alt şerit: danışman bandı (foto → isim/ünvan → iletişim) */}
       <div
-        className="absolute inset-x-0 bottom-0 flex items-center justify-between px-12 py-6"
-        style={{ background: "rgba(11,30,63,0.95)", borderTop: "1px solid rgba(212,175,55,0.4)" }}
+        className="absolute inset-x-0 bottom-0 px-12 py-7"
+        style={{
+          background: "rgba(11,30,63,0.95)",
+          borderTop: "1px solid rgba(212,175,55,0.4)",
+        }}
       >
-        <ContactBlock
-          data={data}
-          align="left"
+        <AgentStrip
+          ad={data.danismanAdi}
+          unvan={data.danismanUnvan}
+          telefon={data.danismanTelefon}
+          foto={data.danismanFoto}
           theme="onDark"
-          preLabel="Emeğiyle Kazandıran Danışman"
+          scale={1}
         />
-        {data.logo && (
-          <img
-            src={data.logo}
-            alt=""
-            style={{ height: 90, filter: "brightness(0) invert(1)", opacity: 0.9 }}
-          />
-        )}
       </div>
     </div>
   );

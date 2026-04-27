@@ -98,12 +98,14 @@ export interface PropertyData {
   banyoSayisi: string;
   /** Danışman bilgileri */
   danismanAdi: string;
+  danismanUnvan: string;
   danismanTelefon: string;
   ofisAdi: string;
   /** data URL olarak saklanan görseller */
   kapakFoto: string | null;
   detayFotolar: string[]; // 0-3
   logo: string | null;
+  danismanFoto: string | null;
 }
 
 export const DEFAULT_PROPERTY: PropertyData = {
@@ -119,9 +121,11 @@ export const DEFAULT_PROPERTY: PropertyData = {
   metrekare: "165",
   banyoSayisi: "2",
   danismanAdi: "Şakir Kış",
+  danismanUnvan: "Profesyonel Gayrimenkul Danışmanı",
   danismanTelefon: "+90 555 000 00 00",
   ofisAdi: "Premium Emlak",
   kapakFoto: null,
   detayFotolar: [],
   logo: null,
+  danismanFoto: null,
 };

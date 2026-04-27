@@ -178,6 +178,15 @@ export function PropertyForm({ data, onChange }: Props) {
               className={inputClass}
             />
           </Field>
+          <Field label="Ünvan">
+            <input
+              type="text"
+              value={data.danismanUnvan}
+              onChange={(e) => set("danismanUnvan", e.target.value)}
+              className={inputClass}
+              placeholder="Profesyonel Gayrimenkul Danışmanı"
+            />
+          </Field>
           <Field label="Telefon">
             <input
               type="tel"
@@ -186,7 +195,7 @@ export function PropertyForm({ data, onChange }: Props) {
               className={inputClass}
             />
           </Field>
-          <Field label="Ofis Adı" full>
+          <Field label="Ofis Adı">
             <input
               type="text"
               value={data.ofisAdi}
@@ -194,6 +203,12 @@ export function PropertyForm({ data, onChange }: Props) {
               className={inputClass}
             />
           </Field>
+          <ImageInput
+            label="Danışman Fotoğrafı (vesikalık)"
+            value={data.danismanFoto}
+            onChange={(v) => set("danismanFoto", v)}
+            full
+          />
         </div>
       </Section>
 

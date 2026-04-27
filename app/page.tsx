@@ -4,18 +4,14 @@ import { useState } from "react";
 import { PropertyForm } from "@/components/PropertyForm";
 import { TemplatePicker } from "@/components/TemplatePicker";
 import { PreviewCanvas } from "@/components/PreviewCanvas";
-<<<<<<< HEAD
 import { KartvizitForm } from "@/components/kartvizit/KartvizitForm";
 import { KartvizitPicker } from "@/components/kartvizit/KartvizitPicker";
 import { KartvizitPreview } from "@/components/kartvizit/KartvizitPreview";
-=======
->>>>>>> bbf1ef81ebca6e80d6b4d3a138a30d463be7ab50
 import {
   DEFAULT_PROPERTY,
   type PropertyData,
   type TemplateId,
 } from "@/lib/types";
-<<<<<<< HEAD
 import {
   DEFAULT_KARTVIZIT,
   type KartvizitData,
@@ -37,18 +33,10 @@ export default function HomePage() {
   const [kartTemplateId, setKartTemplateId] =
     useState<KartvizitTemplateId>("minimal");
 
-=======
-
-export default function HomePage() {
-  const [data, setData] = useState<PropertyData>(DEFAULT_PROPERTY);
-  const [templateId, setTemplateId] = useState<TemplateId>("yeni-portfoy");
-
->>>>>>> bbf1ef81ebca6e80d6b4d3a138a30d463be7ab50
   return (
     <main className="mx-auto max-w-[1400px] px-6 py-8">
       <Header />
 
-<<<<<<< HEAD
       <ModeTabs mode={mode} onChange={setMode} />
 
       {mode === "sosyal" ? (
@@ -120,43 +108,12 @@ export default function HomePage() {
           </div>
         </>
       )}
-=======
-      <section className="mb-6">
-        <SectionTitle
-          step="A"
-          title="Şablonu seçin"
-          subtitle="Postu, story'yi veya bilgi kartını tek tıkla değiştirin."
-        />
-        <TemplatePicker value={templateId} onChange={setTemplateId} />
-      </section>
-
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] gap-8">
-        <section className="bg-white rounded-3xl shadow-card p-6 lg:p-8 border border-brand/5">
-          <SectionTitle
-            step="B"
-            title="İlan bilgilerini doldurun"
-            subtitle="Form değiştikçe sağdaki tasarım anında güncellenir."
-          />
-          <PropertyForm data={data} onChange={setData} />
-        </section>
-
-        <section className="lg:sticky lg:top-6 self-start space-y-4">
-          <SectionTitle
-            step="C"
-            title="Canlı önizleme"
-            subtitle="Tam çözünürlüklü PNG çıktısını alttaki butondan indirin."
-          />
-          <PreviewCanvas data={data} templateId={templateId} />
-        </section>
-      </div>
->>>>>>> bbf1ef81ebca6e80d6b4d3a138a30d463be7ab50
 
       <Footer />
     </main>
   );
 }
 
-<<<<<<< HEAD
 /* --------------- Sekme çubuğu --------------- */
 
 function ModeTabs({
@@ -211,8 +168,6 @@ function ModeTabs({
   );
 }
 
-=======
->>>>>>> bbf1ef81ebca6e80d6b4d3a138a30d463be7ab50
 function Header() {
   return (
     <header className="mb-8 flex items-center justify-between">
@@ -231,11 +186,7 @@ function Header() {
       </div>
       <div className="hidden md:block text-right">
         <div className="text-xs uppercase tracking-widest text-brand/50">
-<<<<<<< HEAD
           MVP — v0.2
-=======
-          MVP — v0.1
->>>>>>> bbf1ef81ebca6e80d6b4d3a138a30d463be7ab50
         </div>
         <div className="text-sm text-brand/70">
           Görseli tarayıcıda render eder, hemen indirir.
